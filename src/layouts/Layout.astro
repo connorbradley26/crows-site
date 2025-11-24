@@ -12,10 +12,12 @@ const { title } = Astro.props;
 <!doctype html>
 <html lang="en">
     <head>
+        
         <meta charset="UTF-8" />
         <meta name="description" content="Astro description" />
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preload" href="/font/JerseyM54.woff" as="font" type="font/woff" crossorigin="anonymous" />
         <meta name="generator" content={Astro.generator} />
 
         <SEO
@@ -56,28 +58,35 @@ const { title } = Astro.props;
                 e.parentNode.insertBefore(i, e);
             })();
         </script>
-    </head>
-    <body>
-        <Navbar />
-        <slot />
         <style is:global>
             html {
                 font-family: "Geist", sans-serif;
             }
             @font-face {
                 font-family: "Geist";
-                src: url("/fonts/Geist-Regular.otf") format("otf");
+                src: url("/font/Geist-Regular.otf") format("otf");
                 font-weight: normal;
                 font-style: normal;
                 font-display: swap;
             }
             @font-face {
                 font-family: "Geist Bold";
-                src: url("/fonts/Geist-Bold.otf") format("otf");
+                src: url("/font/Geist-Bold.otf") format("otf");
                 font-weight: normal;
                 font-style: normal;
                 font-display: swap;
             }
+            @font-face {
+                font-family: "Jersey M54";
+                src: url("/font/JerseyM54.woff") format("woff");
+                font-weight: 400;
+                font-style: normal;
+                font-display: swap;
+            }
         </style>
+    </head>
+    <body>
+        <Navbar />
+        <slot />
     </body>
 </html>
